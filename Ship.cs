@@ -8,8 +8,9 @@ namespace SinkShip
 {
     public partial class Ship
     {
-        int shipLength;
-        int shipHeight;
+        public int ShipLength { get; set; }
+        public int ShipHeight { get; set; }
+        public int[] StartingPoint { get; set; }
 
         public Ship()
         {
