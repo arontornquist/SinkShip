@@ -13,7 +13,11 @@ namespace SinkShip
             Console.Write(output);
             return Console.ReadLine();
         }
-
+        /// <summary>
+        /// Ceiling Print output to console. Read Integer from user.
+        /// </summary>
+        /// <param name="output">Text to print </param>
+        /// <returns>An interger from user</returns>
         public int AskForInt(string output)
         {
             int answer = 0;
@@ -41,7 +45,7 @@ namespace SinkShip
             Console.WriteLine("High Score Lista");
         }
 
-        public void DisplayMenu()
+        public void DisplayMainMenu()
         {
             Console.WriteLine("-- Sänka Skepp --");
             Console.WriteLine("1. Nytt spel");
