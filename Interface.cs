@@ -8,5 +8,6 @@ namespace SinkShip
 {
     class Interface
     {
+        public static void 
     }
 }
