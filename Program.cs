@@ -10,6 +10,12 @@ namespace SinkShip
     {
         static void Main(string[] args)
         {
+            StartGame();
+        }
+
+        private static void StartGame()
+        {
+
         }
     }
 }

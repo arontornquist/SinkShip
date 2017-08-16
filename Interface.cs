@@ -8,6 +8,10 @@ namespace SinkShip
 {
     class Interface
     {
-        public static void 
+        public string AskForString(string output)
+        {
+            Console.Write(output);
+            return Console.ReadLine();
+        }
     }
 }
