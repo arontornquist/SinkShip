@@ -8,6 +8,11 @@ namespace SinkShip
 {
     class Interface
     {
+        /// <summary>
+        /// Print output to console. Read String from user.
+        /// </summary>
+        /// <param name="output">Text to print </param>
+        /// <returns>A String from user</returns>
         public string AskForString(string output)
         {
             Console.Write(output);
@@ -37,18 +42,27 @@ namespace SinkShip
             } while (!isInt);
             return answer;
         }
+        /// <summary>
+        /// Start a new game.
+        /// </summary>
         private static void NewGame()
         {
             //TODO: Skapa metoden!
             //throw new NotImplementedException();
             Console.WriteLine("Nytt spel!!");
         }
+        /// <summary>
+        /// Print out the High Score list to the console.
+        /// </summary>
         public void DisplayHighScore()
         {
             //TODO: Skriv metoden!
             //throw new NotImplementedException();
             Console.WriteLine("High Score Lista");
         }
+        /// <summary>
+        /// Init the menu
+        /// </summary>
         public void Menu()
         {
             DisplayMainMenu();
@@ -68,7 +82,9 @@ namespace SinkShip
                     break;
             }
         }
-
+        /// <summary>
+        /// Print out the main menu to the console.
+        /// </summary>
         public void DisplayMainMenu()
         {
             Console.WriteLine("-- Sänka Skepp --");
