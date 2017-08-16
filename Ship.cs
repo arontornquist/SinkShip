@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace SinkShip
 {
-    public class Ship
+    public partial class Ship
     {
         int shipLength;
         int shipHeight;
-   
 
         public Ship()
         {

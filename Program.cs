@@ -15,7 +15,7 @@ namespace SinkShip
 
         private static void StartGame()
         {
-            GameBoard g = new GameBoard(4,4);
+            GameBoard g = new GameBoard(4,6);
         }
     }
 }
