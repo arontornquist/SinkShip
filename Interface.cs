@@ -13,5 +13,13 @@ namespace SinkShip
             Console.Write(output);
             return Console.ReadLine();
         }
+
+        public void DisplayMenu()
+        {
+            Console.WriteLine("-- Sänka Skepp --");
+            Console.WriteLine("1. Nytt spel");
+            Console.WriteLine("2. High Score");
+            Console.WriteLine("3. Avsluta");
+        }
     }
 }
