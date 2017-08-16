@@ -50,6 +50,7 @@ namespace SinkShip
             //TODO: Skapa metoden!
             //throw new NotImplementedException();
             Console.WriteLine("Nytt spel!!");
+            Console.ReadLine();
         }
         /// <summary>
         /// Print out the High Score list to the console.
@@ -59,28 +60,34 @@ namespace SinkShip
             //TODO: Skriv metoden!
             //throw new NotImplementedException();
             Console.WriteLine("High Score Lista");
+            Console.ReadLine();
         }
         /// <summary>
         /// Init the menu
         /// </summary>
         public void Menu()
         {
-            DisplayMainMenu();
-            int choice = AskForInt(": ");
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    //NewGame();
-                    break;
-                case 2:
-                    //DisplayHighScore();
-                    break;
-                case 3:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    break;
+                Console.Clear();
+                DisplayMainMenu();
+                int choice = AskForInt(": ");
+                switch (choice)
+                {
+                    case 1:
+                        NewGame();
+                        break;
+                    case 2:
+                        DisplayHighScore();
+                        break;
+                    case 3:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        break;
+                }
             }
+
         }
         /// <summary>
         /// Print out the main menu to the console.

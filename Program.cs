@@ -10,16 +10,8 @@ namespace SinkShip
     {
         static void Main(string[] args)
         {
-            StartGame();
-        }
-
-        private static void StartGame()
-        {
             Interface ui = new Interface();
-
-            GameBoard g = new GameBoard(4,4);
+            ui.Menu();
         }
-
-
     }
 }
