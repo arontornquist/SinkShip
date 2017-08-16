@@ -8,5 +8,6 @@ namespace SinkShip
 {
     class Player
     {
+        public string PlayerName { get; set; }
     }
 }

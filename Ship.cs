@@ -8,9 +8,12 @@ namespace SinkShip
 {
     public class Ship
     {
+        int shipLength;
+        int shipHeight;
+   
+
         public Ship()
         {
-
         }
     }
 }
