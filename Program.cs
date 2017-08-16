@@ -15,9 +15,9 @@ namespace SinkShip
 
         private static void StartGame()
         {
-            Interface ui = new Interface();
+            //Interface ui = new Interface();
 
-            GameBoard g = new GameBoard(4,4);
+            GameBoard g = new GameBoard(10,10);
         }
 
 

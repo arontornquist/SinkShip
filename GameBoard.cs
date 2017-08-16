@@ -21,21 +21,37 @@ namespace SinkShip
         private void CreateShips(int[,] board)
         {
             List<Ship> ships = new List<Ship>();
+
+            for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
+                for (int j = 0; j < board.GetLength(1); j++)
+                    board[i, j] = 0;
+
             for (int i = 0; i < 2; i++) //TODO: Skapa funktion för nrOfShips
             {
-                ShipAlignment(ships, board);
-                ShipStartingPoint(ships, board, i);
+                bool validation = true;
+                int[,] validationArray = new int[board.GetLength(0), board.GetLength(1)];
+                do
+                {
+                    validationArray = board;
+                    ShipAlignment(ships, board);
+                    ShipStartingPoint(ships, board, i);
+                    for (int j = ships[i].StartingPoint[0]; j < ships[i].StartingPoint[0]+ships[i].ShipLength; j++)
+                        for (int k = ships[i].StartingPoint[1]; k < ships[i].StartingPoint[1]+ships[i].ShipHeight; k++)
+                        {
+                            if (board[j, k] != 1)
+                                validationArray[j, k] = 1;
+                            else
+                                validation = false;
+                        }
+                } while (!validation);
+                board = validationArray;
             }
-             
             for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
-
                 for (int j = 0; j < board.GetLength(1); j++)
-                {
-                    board[i, j] = 0;
-                }
+                    Console.Write($"{board[i, j]} ");
+                Console.WriteLine();
             }
-            
         }
 
         private void ShipStartingPoint(List<Ship> ships, int[,] board, int i) //Sets the starting points (x,y) for a ship
