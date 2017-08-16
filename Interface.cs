@@ -14,7 +14,7 @@ namespace SinkShip
             return Console.ReadLine();
         }
         /// <summary>
-        /// Ceiling Print output to console. Read Integer from user.
+        /// Print output to console. Read Integer from user.
         /// </summary>
         /// <param name="output">Text to print </param>
         /// <returns>An interger from user</returns>
@@ -37,12 +37,36 @@ namespace SinkShip
             } while (!isInt);
             return answer;
         }
-
-        internal void DisplayHighScore()
+        private static void NewGame()
+        {
+            //TODO: Skapa metoden!
+            //throw new NotImplementedException();
+            Console.WriteLine("Nytt spel!!");
+        }
+        public void DisplayHighScore()
         {
             //TODO: Skriv metoden!
             //throw new NotImplementedException();
             Console.WriteLine("High Score Lista");
+        }
+        public void Menu()
+        {
+            DisplayMainMenu();
+            int choice = AskForInt(": ");
+            switch (choice)
+            {
+                case 1:
+                    //NewGame();
+                    break;
+                case 2:
+                    //DisplayHighScore();
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void DisplayMainMenu()
