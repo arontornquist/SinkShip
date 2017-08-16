@@ -14,6 +14,33 @@ namespace SinkShip
             return Console.ReadLine();
         }
 
+        public int AskForInt(string output)
+        {
+            int answer = 0;
+            bool isInt = false;
+            do
+            {
+                Console.Write(output);
+                try
+                {
+                    answer = int.Parse(Console.ReadLine());
+                    isInt = true;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Skriv in ett nummer, försök igen");
+                }
+            } while (!isInt);
+            return answer;
+        }
+
+        internal void DisplayHighScore()
+        {
+            //TODO: Skriv metoden!
+            //throw new NotImplementedException();
+            Console.WriteLine("High Score Lista");
+        }
+
         public void DisplayMenu()
         {
             Console.WriteLine("-- Sänka Skepp --");
