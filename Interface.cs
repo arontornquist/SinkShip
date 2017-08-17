@@ -8,6 +8,9 @@ namespace SinkShip
 {
     class Interface
     {
+        //log-objekt för att skriva till loggfilen
+        public static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Print output to console. Read String from user.
         /// </summary>
