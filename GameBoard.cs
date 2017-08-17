@@ -76,8 +76,8 @@ namespace SinkShip
 
         public bool Shoot(int x, int y)
         {
-            if (Board[x, y] == 1)
-                Board[x, y] = 2;
+            if (Board[(x-1), (y-1)] == 1)
+                Board[(x - 1), (y - 1)] = 2;
             for (int i = 0; i < board.GetLength(0); i++)
                 for (int j = 0; j < board.GetLength(1); j++)
                     if (Board[i,j] == 1)
@@ -96,7 +96,7 @@ namespace SinkShip
                     //    i--;
                     //    j--;
                     //}
-                    //else if (i == 0)
+                    //else if (i == -1)
                     //{
                     //    Console.Write($" {(j)} ");
 
