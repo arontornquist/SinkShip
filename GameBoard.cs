@@ -37,6 +37,7 @@ namespace SinkShip
                 do
                 {
                     validationArray = board;
+                    validation = true;
                     //Array.Copy(board, validationArray, board.GetLength(0));
                     ShipAlignment(ships, board);
                     ShipStartingPoint(ships, board, i);
