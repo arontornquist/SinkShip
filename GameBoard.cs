@@ -13,7 +13,8 @@ namespace SinkShip
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private Random random = new Random();
         private int[,] board;
-
+        public int X { get; }
+        public int Y { get; }
         private int[,] Board
         {
             get { return board; }
@@ -25,6 +26,8 @@ namespace SinkShip
 
         public GameBoard(int x, int y)
         {
+            X = x;
+            Y = y;
             log.Debug($"Skapar nytt GameBoard med storlek {x},{y}");
             Board = new int[x, y];
             CreateShips(Board);

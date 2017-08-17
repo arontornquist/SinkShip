@@ -61,8 +61,34 @@ namespace SinkShip
                 gameBoard.Print();
                 Console.WriteLine($"Du har {shotsLeft} försök kvar.");
                 Console.WriteLine("Vart vill du stjuta? (x,y)");
-                int x = AskForInt("x: ");
-                int y = AskForInt("y: ");
+                int x, y;
+                do
+                {
+                    int tmpX = AskForInt("x: ");
+                    if(tmpX < 1 || tmpX > gameBoard.X)
+                    {
+                        Console.WriteLine("Felaktig inmatning, värde på x ligger utanför spelbrädet");
+                    }
+                    else
+                    {
+                        x = tmpX;
+                        break;
+                    }
+                } while (true);
+                do
+                {
+                    int tmpY = AskForInt("y: ");
+                    if (tmpY < 1 || tmpY > gameBoard.Y)
+                    {
+                        Console.WriteLine("Felaktig inmatning, värde på y ligger utanför spelbrädet");
+                    }
+                    else
+                    {
+                        y = tmpY;
+                        break;
+                    }
+                } while (true);
+
                 if (gameBoard.Shoot(x,y))
                 {
                     if (gameBoard.Check())
