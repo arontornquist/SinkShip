@@ -38,8 +38,6 @@ namespace SinkShip
                 int[,] validationArray = new int[board.GetLength(0), board.GetLength(1)];
                 do
                 {
-                    //validationArray = board;
-                    //Array.Copy(board, validationArray, board.GetLength(0));
                     validationArray = board.Clone() as int[,];
                     validation = true;
                     ShipAlignment(ships, board, i);
@@ -61,7 +59,6 @@ namespace SinkShip
                         }
                 } while (!validation);
                 log.Debug("Lyckades skriva skepp till board");
-                //board = validationArray;
                 board = validationArray.Clone() as int[,];
             }
             log.Debug("Skriver ut board till konsollen");
@@ -79,8 +76,6 @@ namespace SinkShip
             int y = random.Next(0, (board.GetLength(1) - ships[i].ShipHeight + 1));
             log.Debug($"Sätter startpunkt för skepp till {x},{y}");
             ships[i].StartingPoint = new int[] { x, y };
-            //Console.WriteLine($"{ships[i].StartingPoint[0]}, {ships[i].StartingPoint[1]}, ship length: {ships[i].ShipLength}, ship height: {ships[i].ShipHeight}");
-
         }
 
         private void ShipAlignment(List<Ship> ships, int[,] board, int i) //Sets if the ship will be vertical or horizontal
@@ -90,18 +85,14 @@ namespace SinkShip
             log.Debug($"Alignment slumpas till {alignment}");
             if (alignment == 0)
             {
-                //Ship x = new Ship();
                 ships[i].ShipLength = random.Next(1, board.GetLength(0)+1);
                 ships[i].ShipHeight = 1;
-                //ships.Add(x);
                 log.Debug($"Ship alignment ShipHeight={ships[i].ShipHeight} ShipLength={ ships[i].ShipLength}");
             }
             else
             {
-                //Ship x = new Ship();
                 ships[i].ShipHeight = random.Next(1, board.GetLength(1)+1);
                 ships[i].ShipLength = 1;
-                //ships.Add(x);
                 log.Debug($"Ship alignment ShipHeight={ships[i].ShipHeight} ShipLength={ ships[i].ShipLength}");
             }
         }
