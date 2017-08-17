@@ -76,7 +76,13 @@ namespace SinkShip
 
         public bool Shoot(int x, int y)
         {
-            return false;
+            if (Board[x, y] == 1)
+                Board[x, y] = 2;
+            for (int i = 0; i < board.GetLength(0); i++)
+                for (int j = 0; j < board.GetLength(1); j++)
+                    if (Board[i,j] == 1)
+                        return false;
+            return true;
         }
 
         public void Print()
@@ -84,13 +90,20 @@ namespace SinkShip
             for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
                 for (int j = 0; j < board.GetLength(1); j++)
-                    //if(i==0 && j ==0)
+                    if (i == 0 && j == 0)
+                    //{
                     //    Console.Write(" ¤ ");
+                    //    i--;
+                    //    j--;
+                    //}
                     //else if (i == 0)
+                    //{
                     //    Console.Write($" {(j)} ");
+
+                    //}
                     //else if (j == 0)
                     //    Console.Write($" {(i)} ");
-                    if (board[i,j] == 1)
+                    if (board[i, j] == 2)
                         Console.Write(" X ");
                     else
                         Console.Write(" ~ ");
