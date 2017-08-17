@@ -74,10 +74,18 @@ namespace SinkShip
 
         private static void EndGame(bool result)
         {
-            if(result)
+            if (result)
+            {
                 Console.WriteLine("Grattis, du har sänkt att skepp");
+                Console.ReadKey();
+            }
+
             else
+            {
                 Console.WriteLine("Game Over");
+                Console.ReadKey();
+            }
+                
         }
 
         private static GameBoard CreateGameBoard()

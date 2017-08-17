@@ -90,7 +90,7 @@ namespace SinkShip
             for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
                 for (int j = 0; j < board.GetLength(1); j++)
-                    if (i == 0 && j == 0)
+                    //if (i == 0 && j == 0)
                     //{
                     //    Console.Write(" ¤ ");
                     //    i--;
