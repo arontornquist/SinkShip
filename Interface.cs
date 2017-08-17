@@ -16,7 +16,7 @@ namespace SinkShip
         /// </summary>
         /// <param name="output">Text to print </param>
         /// <returns>A String from user</returns>
-        public string AskForString(string output)
+        private static string AskForString(string output)
         {
             Console.Write(output);
             return Console.ReadLine();
@@ -26,7 +26,7 @@ namespace SinkShip
         /// </summary>
         /// <param name="output">Text to print </param>
         /// <returns>An interger from user</returns>
-        public int AskForInt(string output)
+        private static int AskForInt(string output)
         {
             int answer = 0;
             bool isInt = false;
@@ -52,9 +52,42 @@ namespace SinkShip
         {
             //TODO: Skapa metoden!
             //throw new NotImplementedException();
-            Console.WriteLine("Nytt spel!!");
-            Console.ReadLine();
+            
+            GameBoard gameBoard = CreateGameBoard();
+            int shotsLeft = 5;
+            bool result = false;
+            do
+            {
+                gameBoard.Print();
+                Console.WriteLine($"Du har {shotsLeft} försök kvar.");
+                Console.WriteLine("Vart vill du stjuta? (x,y)");
+                int x = AskForInt("x: ");
+                int y = AskForInt("y: ");
+                if (gameBoard.Shoot(x,y))
+                {
+                    result = true;
+                }
+                shotsLeft--;
+            } while (shotsLeft > 0);
+            EndGame(result);
         }
+
+        private static void EndGame(bool result)
+        {
+            if(result)
+                Console.WriteLine("Grattis, du har sänkt att skepp");
+            else
+                Console.WriteLine("Game Over");
+        }
+
+        private static GameBoard CreateGameBoard()
+        {
+            Console.WriteLine("Ange önskad storlek på spelbräde (x,y)");
+            int x = AskForInt("x: ");
+            int y = AskForInt("y: ");
+            return new GameBoard(x, y);
+        }
+
         /// <summary>
         /// Print out the High Score list to the console.
         /// </summary>
