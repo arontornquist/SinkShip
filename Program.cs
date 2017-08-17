@@ -16,7 +16,7 @@ namespace SinkShip
         private static void StartGame()
         {
             Interface ui = new Interface();
-            int i = ui.A
+            
 
             GameBoard g = new GameBoard(10,10);
             g.Print();
