@@ -11,8 +11,16 @@ namespace SinkShip
         //log-objekt för att skriva till logfilen
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public Random random = new Random();
-        public int[,] Board { get; private set; }
+        private Random random = new Random();
+        private int[,] board;
+
+        private int[,] Board
+        {
+            get { return board; }
+            set { board = value; }
+        }
+
+        //private int[,] Board { get; set; }
 
 
         public GameBoard(int x, int y)
@@ -35,19 +43,20 @@ namespace SinkShip
                 Ship x = new Ship();
                 ships.Add(x);
                 bool validation = true;
-                int[,] validationArray = new int[board.GetLength(0), board.GetLength(1)];
+                int[,] validationArray = new int[Board.GetLength(0), Board.GetLength(1)];
                 do
                 {
-                    validationArray = board.Clone() as int[,];
+                    validationArray = Board.Clone() as int[,];
                     validation = true;
-                    ShipAlignment(ships, board, i);
-                    ShipStartingPoint(ships, board, i);
+                    ShipAlignment(ships, Board, i);
+                    ShipStartingPoint(ships, Board, i);
                     log.Debug("Försöker skriva skepp till board");
-                    for (int j = ships[i].StartingPoint[0]; j < ships[i].StartingPoint[0]+ships[i].ShipLength; j++)
-                        for (int k = ships[i].StartingPoint[1]; k < ships[i].StartingPoint[1]+ships[i].ShipHeight; k++)
+                    for (int j = ships[i].StartingPoint[0]; j < ships[i].StartingPoint[0] + ships[i].ShipLength; j++)
+                        for (int k = ships[i].StartingPoint[1]; k < ships[i].StartingPoint[1] + ships[i].ShipHeight; k++)
                         {
-                            if (board[j, k] != 1)
+                            if (Board[j, k] != 1)
                             {
+                                log.Debug($"Värde innan [{validationArray[j, k]}]");
                                 validationArray[j, k] = 1;
                                 log.Debug($"Sätter board[{j},{k}] till 1");
                             }
@@ -59,13 +68,32 @@ namespace SinkShip
                         }
                 } while (!validation);
                 log.Debug("Lyckades skriva skepp till board");
-                board = validationArray.Clone() as int[,];
+                Board = validationArray.Clone() as int[,];
             }
             log.Debug("Skriver ut board till konsollen");
+            
+        }
+
+        public bool Shoot(int x, int y)
+        {
+            return false;
+        }
+
+        public void Print()
+        {
             for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
                 for (int j = 0; j < board.GetLength(1); j++)
-                    Console.Write($"{board[i, j]} ");
+                    //if(i==0 && j ==0)
+                    //    Console.Write(" ¤ ");
+                    //else if (i == 0)
+                    //    Console.Write($" {(j)} ");
+                    //else if (j == 0)
+                    //    Console.Write($" {(i)} ");
+                    if (board[i,j] == 1)
+                        Console.Write(" X ");
+                    else
+                        Console.Write(" ~ ");
                 Console.WriteLine();
             }
         }

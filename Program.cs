@@ -18,6 +18,7 @@ namespace SinkShip
             //Interface ui = new Interface();
 
             GameBoard g = new GameBoard(10,10);
+            g.Print();
         }
     }
 }
