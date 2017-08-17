@@ -77,11 +77,21 @@ namespace SinkShip
         public bool Shoot(int x, int y)
         {
             if (Board[(x-1), (y-1)] == 1)
+            {
                 Board[(x - 1), (y - 1)] = 2;
+                return true;
+            }
+            return false;   
+        }
+
+        public bool Check()
+        {
             for (int i = 0; i < board.GetLength(0); i++)
+            {
                 for (int j = 0; j < board.GetLength(1); j++)
-                    if (Board[i,j] == 1)
+                    if (Board[i, j] == 1)
                         return false;
+            }
             return true;
         }
 

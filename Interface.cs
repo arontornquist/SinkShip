@@ -65,9 +65,16 @@ namespace SinkShip
                 int y = AskForInt("y: ");
                 if (gameBoard.Shoot(x,y))
                 {
-                    result = true;
+                    if (gameBoard.Check())
+                    {
+                        result = true;
+                        break;
+                    }                
                 }
-                shotsLeft--;
+                else
+                {
+                    shotsLeft--;
+                }              
             } while (shotsLeft > 0);
             EndGame(result);
         }
@@ -76,7 +83,7 @@ namespace SinkShip
         {
             if (result)
             {
-                Console.WriteLine("Grattis, du har sänkt att skepp");
+                Console.WriteLine("Grattis, du har sänkt alla skepp");
                 Console.ReadKey();
             }
 
