@@ -87,26 +87,21 @@ namespace SinkShip
 
         public void Print()
         {
-            for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
+            for (int i = -1; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
-                for (int j = 0; j < board.GetLength(1); j++)
-                    //if (i == 0 && j == 0)
-                    //{
-                    //    Console.Write(" ¤ ");
-                    //    i--;
-                    //    j--;
-                    //}
-                    //else if (i == -1)
-                    //{
-                    //    Console.Write($" {(j)} ");
-
-                    //}
-                    //else if (j == 0)
-                    //    Console.Write($" {(i)} ");
-                    if (board[i, j] == 2)
-                        Console.Write(" X ");
+                 for (int j = -1; j < board.GetLength(1); j++)
+                    if (i == -1 && j == -1)
+                    {
+                        Console.Write("¤".PadLeft(3));
+                    }
+                    else if (i == -1)
+                        Console.Write($"{(j + 1).ToString().PadLeft(3)}");
+                    else if (j == -1)
+                        Console.Write($"{(i+1).ToString().PadLeft(3)}");
+                    else if (board[i, j] == 2)
+                            Console.Write("X".PadLeft(3));
                     else
-                        Console.Write(" ~ ");
+                            Console.Write("~".PadLeft(3));
                 Console.WriteLine();
             }
         }
