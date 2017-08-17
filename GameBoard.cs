@@ -36,7 +36,8 @@ namespace SinkShip
                 int[,] validationArray = new int[board.GetLength(0), board.GetLength(1)];
                 do
                 {
-                    validationArray = board;
+                    //validationArray = board;
+                    Array.Copy(board, validationArray, board.GetLength(0));
                     ShipAlignment(ships, board);
                     ShipStartingPoint(ships, board, i);
                     log.Debug("Försöker skriva skepp till board");
