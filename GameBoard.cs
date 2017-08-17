@@ -32,14 +32,17 @@ namespace SinkShip
             log.Debug("Försöker skapa skepp");
             for (int i = 0; i < 2; i++) //TODO: Skapa funktion för nrOfShips
             {
+                Ship x = new Ship();
+                ships.Add(x);
                 bool validation = true;
                 int[,] validationArray = new int[board.GetLength(0), board.GetLength(1)];
                 do
                 {
-                    validationArray = board;
-                    validation = true;
+                    //validationArray = board;
                     //Array.Copy(board, validationArray, board.GetLength(0));
-                    ShipAlignment(ships, board);
+                    validationArray = board.Clone() as int[,];
+                    validation = true;
+                    ShipAlignment(ships, board, i);
                     ShipStartingPoint(ships, board, i);
                     log.Debug("Försöker skriva skepp till board");
                     for (int j = ships[i].StartingPoint[0]; j < ships[i].StartingPoint[0]+ships[i].ShipLength; j++)
@@ -58,7 +61,8 @@ namespace SinkShip
                         }
                 } while (!validation);
                 log.Debug("Lyckades skriva skepp till board");
-                board = validationArray;
+                //board = validationArray;
+                board = validationArray.Clone() as int[,];
             }
             log.Debug("Skriver ut board till konsollen");
             for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
@@ -79,26 +83,26 @@ namespace SinkShip
 
         }
 
-        private void ShipAlignment(List<Ship> ships, int[,] board) //Sets if the ship will be vertical or horizontal
+        private void ShipAlignment(List<Ship> ships, int[,] board, int i) //Sets if the ship will be vertical or horizontal
         {
             log.Debug("Sätter ship alignment");
             int alignment = random.Next(0, 2);
             log.Debug($"Alignment slumpas till {alignment}");
             if (alignment == 0)
             {
-                Ship x = new Ship();
-                x.ShipLength = random.Next(1, board.GetLength(0)+1);
-                x.ShipHeight = 1;
-                ships.Add(x);
-                log.Debug($"Ship alignment ShipHeight={x.ShipHeight} ShipLength={ x.ShipLength}");
+                //Ship x = new Ship();
+                ships[i].ShipLength = random.Next(1, board.GetLength(0)+1);
+                ships[i].ShipHeight = 1;
+                //ships.Add(x);
+                log.Debug($"Ship alignment ShipHeight={ships[i].ShipHeight} ShipLength={ ships[i].ShipLength}");
             }
             else
             {
-                Ship x = new Ship();
-                x.ShipHeight = random.Next(1, board.GetLength(1)+1);
-                x.ShipLength = 1;
-                ships.Add(x);
-                log.Debug($"Ship alignment ShipHeight={x.ShipHeight} ShipLength={ x.ShipLength}");
+                //Ship x = new Ship();
+                ships[i].ShipHeight = random.Next(1, board.GetLength(1)+1);
+                ships[i].ShipLength = 1;
+                //ships.Add(x);
+                log.Debug($"Ship alignment ShipHeight={ships[i].ShipHeight} ShipLength={ ships[i].ShipLength}");
             }
         }
     }
