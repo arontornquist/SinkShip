@@ -19,7 +19,5 @@ namespace SinkShip
 
             GameBoard g = new GameBoard(10,10);
         }
-
-
     }
 }

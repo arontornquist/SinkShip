@@ -8,6 +8,9 @@ namespace SinkShip
 {
     class Interface
     {
+        //log-objekt för att skriva till loggfilen
+        public static readonly log4net.ILog log =
+            log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// Print output to console. Read String from user.
         /// </summary>
@@ -50,6 +53,7 @@ namespace SinkShip
             //TODO: Skapa metoden!
             //throw new NotImplementedException();
             Console.WriteLine("Nytt spel!!");
+            Console.ReadLine();
         }
         /// <summary>
         /// Print out the High Score list to the console.
@@ -59,28 +63,34 @@ namespace SinkShip
             //TODO: Skriv metoden!
             //throw new NotImplementedException();
             Console.WriteLine("High Score Lista");
+            Console.ReadLine();
         }
         /// <summary>
         /// Init the menu
         /// </summary>
         public void Menu()
         {
-            DisplayMainMenu();
-            int choice = AskForInt(": ");
-            switch (choice)
+            while (true)
             {
-                case 1:
-                    //NewGame();
-                    break;
-                case 2:
-                    //DisplayHighScore();
-                    break;
-                case 3:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    break;
+                Console.Clear();
+                DisplayMainMenu();
+                int choice = AskForInt(": ");
+                switch (choice)
+                {
+                    case 1:
+                        NewGame();
+                        break;
+                    case 2:
+                        DisplayHighScore();
+                        break;
+                    case 3:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        break;
+                }
             }
+
         }
         /// <summary>
         /// Print out the main menu to the console.
