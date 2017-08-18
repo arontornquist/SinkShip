@@ -104,9 +104,7 @@ namespace SinkShip
             {
                  for (int j = -1; j < board.GetLength(1); j++)
                     if (i == -1 && j == -1)
-                    {
                         Console.Write("¤".PadLeft(3));
-                    }
                     else if (i == -1)
                         Console.Write($"{(j + 1).ToString().PadLeft(3)}");
                     else if (j == -1)
@@ -117,6 +115,7 @@ namespace SinkShip
                             Console.Write("~".PadLeft(3));
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
         private void ShipStartingPoint(List<Ship> ships, int[,] board, int i) //Sets the starting points (x,y) for a ship
