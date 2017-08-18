@@ -37,11 +37,11 @@ namespace SinkShip
         {
             List<Ship> ships = new List<Ship>();
             log.Debug("Skapar List<Ship> ships och sätter alla värden till 0");
-            for (int i = 0; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
+            for (int i = 0; i < board.GetLength(0); i++)
                 for (int j = 0; j < board.GetLength(1); j++)
                     board[i, j] = 0;
             log.Debug("Försöker skapa skepp");
-            for (int i = 0; i < 2; i++) //TODO: Skapa funktion för nrOfShips
+            for (int i = 0; i < 2; i++) //TODO: Skapa funktion för nrOfShips - ex slumpa mellan 1 och (minsta av spelplanhöjd och bredd)-1
             {
                 Ship x = new Ship();
                 ships.Add(x);
@@ -100,7 +100,7 @@ namespace SinkShip
 
         public void Print()
         {
-            for (int i = -1; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
+            for (int i = -1; i < board.GetLength(0); i++)
             {
                 for (int j = -1; j < board.GetLength(1); j++)
                     if (i == -1 && j == -1)
