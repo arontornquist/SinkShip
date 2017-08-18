@@ -32,7 +32,7 @@ namespace SinkShip
             bool isInt = false;
             do
             {
-                Console.Write(output);
+                Console.Write(output); //Kul att prova och använda oss av try/catch - Vi är medvetna om att Try.Parse kanske blir renare kod
                 try
                 {
                     answer = int.Parse(Console.ReadLine());
@@ -48,7 +48,7 @@ namespace SinkShip
         /// <summary>
         /// Start a new game.
         /// </summary>
-        private static void NewGame()
+        private static void NewGame() //TODO: Dela upp i metoder?
         {          
             GameBoard gameBoard = CreateGameBoard();
             int shotsLeft = 5;
@@ -114,7 +114,7 @@ namespace SinkShip
         /// <param name="result">True=win, False=loss </param>
         private static void EndGame(bool result)
         {
-            if (result)
+            if (result)//TODO: Bör döpa om result så att det blir tydligare vad vi avser
             {
                 log.Debug("Alla skepp sänkta");
                 Console.WriteLine("Grattis, du har sänkt alla skepp");
