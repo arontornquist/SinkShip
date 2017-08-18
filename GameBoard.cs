@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SinkShip
@@ -91,9 +93,28 @@ namespace SinkShip
             if (Board[(x-1), (y-1)] == 1)
             {
                 Board[(x - 1), (y - 1)] = 2;
+                HitEffects();
                 return true;
             }
             return false;   
+        }
+
+        private static void HitEffects()
+        {
+            bool visible = true;
+            for (int i = 0; i < 7; i++)
+            {
+                string hit = "HIT! HIT!! HIT!!!";
+                using (SoundPlayer player = new SoundPlayer(@"C:\Users\aron.tornqvist\Documents\Visual Studio 2017\Projects\CSharpExercises\SinkShip\bin\Debug\beep-03.wav"))
+                    player.PlaySync();
+                Console.Clear();
+                Console.ForegroundColor = visible ? ConsoleColor.Red : ConsoleColor.Yellow;
+                visible = !visible;
+                
+                Console.Write(hit);
+                Thread.Sleep(100);
+            }
+                Console.Clear();
         }
 
         public bool Check()
@@ -138,9 +159,9 @@ namespace SinkShip
                         Console.ResetColor();
                     }
                     else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write("~".PadLeft(3));
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("~".PadLeft(3));
                         Console.ResetColor();
                     }
                 Console.WriteLine();
