@@ -102,17 +102,37 @@ namespace SinkShip
         {
             for (int i = -1; i < board.GetLength(0); i++)//TODO: Gör klart metoden!
             {
-                 for (int j = -1; j < board.GetLength(1); j++)
+                for (int j = -1; j < board.GetLength(1); j++)
                     if (i == -1 && j == -1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.Write("¤".PadLeft(3));
+                        Console.ResetColor();
+                    }
                     else if (i == -1)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.Write($"{(j + 1).ToString().PadLeft(3)}");
+                        Console.ResetColor();
+                    }
                     else if (j == -1)
-                        Console.Write($"{(i+1).ToString().PadLeft(3)}");
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"{(i + 1).ToString().PadLeft(3)}");
+                        Console.ResetColor();
+                    }
                     else if (board[i, j] == 2)
-                            Console.Write("X".PadLeft(3));
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("X".PadLeft(3));
+                        Console.ResetColor();
+                    }
                     else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
                             Console.Write("~".PadLeft(3));
+                        Console.ResetColor();
+                    }
                 Console.WriteLine();
             }
             Console.WriteLine();
