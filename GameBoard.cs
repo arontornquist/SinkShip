@@ -105,7 +105,7 @@ namespace SinkShip
             for (int i = 0; i < 7; i++)
             {
                 string hit = "HIT! HIT!! HIT!!!";
-                using (SoundPlayer player = new SoundPlayer(@"C:\Users\aron.tornqvist\Documents\Visual Studio 2017\Projects\CSharpExercises\SinkShip\bin\Debug\beep-03.wav"))
+                using (SoundPlayer player = new SoundPlayer(@"../../audio/beep-03.wav"))
                     player.PlaySync();
                 Console.Clear();
                 Console.ForegroundColor = visible ? ConsoleColor.Red : ConsoleColor.Yellow;
