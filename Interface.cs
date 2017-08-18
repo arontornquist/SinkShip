@@ -49,10 +49,7 @@ namespace SinkShip
         /// Start a new game.
         /// </summary>
         private static void NewGame()
-        {
-            //TODO: Skapa metoden!
-            //throw new NotImplementedException();
-            
+        {          
             GameBoard gameBoard = CreateGameBoard();
             int shotsLeft = 5;
             bool result = false;
@@ -93,6 +90,7 @@ namespace SinkShip
                 {
                     if (gameBoard.Check())
                     {
+                        gameBoard.Print();
                         result = true;
                         break;
                     }                
@@ -109,6 +107,7 @@ namespace SinkShip
         {
             if (result)
             {
+                
                 Console.WriteLine("Grattis, du har sänkt alla skepp");
                 Console.ReadKey();
             }
@@ -124,8 +123,33 @@ namespace SinkShip
         private static GameBoard CreateGameBoard()
         {
             Console.WriteLine("Ange önskad storlek på spelbräde (x,y)");
-            int x = AskForInt("x: ");
-            int y = AskForInt("y: ");
+            int x, y;
+            do
+            {
+                int tmpX = AskForInt("x: ");
+                if (tmpX < 3 || tmpX > 20)
+                {
+                    Console.WriteLine("Felaktig inmatning, x kan bara ha ett värde mellan 3-20");
+                }
+                else
+                {
+                    x = tmpX;
+                    break;
+                }
+            } while (true);
+            do
+            {
+                int tmpY = AskForInt("y: ");
+                if (tmpY < 3 || tmpY > 20)
+                {
+                    Console.WriteLine("Felaktig inmatning, y kan bara ha ett värde mellan 3-20");
+                }
+                else
+                {
+                    y = tmpY;
+                    break;
+                }
+            } while (true);
             return new GameBoard(x, y);
         }
 
