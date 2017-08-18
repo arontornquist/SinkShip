@@ -49,15 +49,13 @@ namespace SinkShip
         /// Start a new game.
         /// </summary>
         private static void NewGame()
-        {
-            //TODO: Skapa metoden!
-            //throw new NotImplementedException();
-            
+        {          
             GameBoard gameBoard = CreateGameBoard();
             int shotsLeft = 5;
             bool result = false;
             do
             {
+                log.Debug($"Användaren skjuter. Antal skott kvar {shotsLeft}");
                 gameBoard.Print();
                 Console.WriteLine($"Du har {shotsLeft} försök kvar.");
                 Console.WriteLine("Vart vill du stjuta? (x,y)");
@@ -67,6 +65,7 @@ namespace SinkShip
                     int tmpX = AskForInt("x: ");
                     if(tmpX < 1 || tmpX > gameBoard.X)
                     {
+                        log.Error($"Användaren matar in felaktigt x värde ({tmpX})");
                         Console.WriteLine("Felaktig inmatning, värde på x ligger utanför spelbrädet");
                     }
                     else
@@ -80,6 +79,7 @@ namespace SinkShip
                     int tmpY = AskForInt("y: ");
                     if (tmpY < 1 || tmpY > gameBoard.Y)
                     {
+                        log.Error($"Användaren matar in felaktigt y värde ({tmpY})");
                         Console.WriteLine("Felaktig inmatning, värde på y ligger utanför spelbrädet");
                     }
                     else
@@ -88,47 +88,83 @@ namespace SinkShip
                         break;
                     }
                 } while (true);
+                
 
                 if (gameBoard.Shoot(x,y))
                 {
+                    log.Debug($"Användaren skjuter, träff på x:{x} y:{y}");
                     if (gameBoard.Check())
                     {
+                        gameBoard.Print();
                         result = true;
                         break;
                     }                
                 }
                 else
                 {
+                    log.Debug($"Användaren skjuter, miss på x:{x} y:{y}");
                     shotsLeft--;
                 }              
             } while (shotsLeft > 0);
             EndGame(result);
         }
-
+        /// <summary>
+        /// Ends the current game. Display result to the user.
+        /// </summary>
+        /// <param name="result">True=win, False=loss </param>
         private static void EndGame(bool result)
         {
             if (result)
             {
+                log.Debug("Alla skepp sänkta");
                 Console.WriteLine("Grattis, du har sänkt alla skepp");
                 Console.ReadKey();
             }
 
             else
             {
+                log.Debug("Game over");
                 Console.WriteLine("Game Over");
                 Console.ReadKey();
             }
                 
         }
-
+        /// <summary>
+        /// Creates gameboard. Gets size from user input.
+        /// </summary>
+        /// <returns>New GameBoard object</returns>
         private static GameBoard CreateGameBoard()
         {
             Console.WriteLine("Ange önskad storlek på spelbräde (x,y)");
-            int x = AskForInt("x: ");
-            int y = AskForInt("y: ");
+            int x, y;
+            do
+            {
+                int tmpX = AskForInt("x: ");
+                if (tmpX < 3 || tmpX > 20)
+                {
+                    Console.WriteLine("Felaktig inmatning, x kan bara ha ett värde mellan 3-20");
+                }
+                else
+                {
+                    x = tmpX;
+                    break;
+                }
+            } while (true);
+            do
+            {
+                int tmpY = AskForInt("y: ");
+                if (tmpY < 3 || tmpY > 20)
+                {
+                    Console.WriteLine("Felaktig inmatning, y kan bara ha ett värde mellan 3-20");
+                }
+                else
+                {
+                    y = tmpY;
+                    break;
+                }
+            } while (true);
             return new GameBoard(x, y);
         }
-
         /// <summary>
         /// Print out the High Score list to the console.
         /// </summary>
@@ -158,6 +194,7 @@ namespace SinkShip
                         DisplayHighScore();
                         break;
                     case 3:
+                        log.Debug("Avslutar programmet");
                         Environment.Exit(0);
                         break;
                     default:
@@ -171,6 +208,7 @@ namespace SinkShip
         /// </summary>
         public void DisplayMainMenu()
         {
+            log.Debug("Skriver ut huvudmeny");
             Console.WriteLine("-- Sänka Skepp --");
             Console.WriteLine("1. Nytt spel");
             Console.WriteLine("2. High Score");
