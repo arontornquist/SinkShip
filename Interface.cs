@@ -75,7 +75,7 @@ namespace SinkShip
                     log.Debug($"Användaren skjuter, träff på x:{x} y:{y}");
                     if (gameBoard.Check())
                     {
-                        gameBoard.Print(); //TODO: Lägga till rolig info kring träff: skriva ut/"säga "Hit!"
+                        gameBoard.Print(); //TODO: Lägga till rolig info kring träff: skriva ut/"säga "Hit!"  <---- Ta bort denna
                         result = true;
                         break;
                     }
@@ -134,7 +134,7 @@ namespace SinkShip
             if (gameResult)
             {
                 log.Debug("Alla skepp sänkta");
-                Console.WriteLine("Grattis, du har sänkt alla skepp");
+                Console.WriteLine("Grattis, du har sänkt alla skepp"); //TODO - Hur många skepp är kvar att sänka?
                 Console.ReadKey();
             }
 
@@ -193,9 +193,9 @@ namespace SinkShip
         /// </summary>
         public void DisplayHighScore()
         {
-            //TODO: Skriv metoden!
+            //TODO: Skriv metoden! <------ Ja, vi håller med. Vi saknade vår vinst i listan.
             //throw new NotImplementedException();
-            Console.WriteLine("High Score Lista");
+            Console.WriteLine("High Score Lista"); 
             Console.ReadLine();
         }
         /// <summary>
