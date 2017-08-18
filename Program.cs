@@ -10,6 +10,7 @@ namespace SinkShip
     {
         static void Main(string[] args)
         {
+            Interface.log.Debug("Startar programmet");
             StartGame();
         }
 
