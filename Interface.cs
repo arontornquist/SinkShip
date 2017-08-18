@@ -49,7 +49,7 @@ namespace SinkShip
         /// <summary>
         /// Start a new game.
         /// </summary>
-        private static void NewGame() //TODO: Dela upp i metoder?
+        private static void NewGame()
         {
             GameBoard gameBoard = CreateGameBoard();
             int shotsLeft = NumberOfShots(gameBoard.X, gameBoard.Y);
@@ -232,6 +232,15 @@ namespace SinkShip
         public void DisplayMainMenu()
         {
             log.Debug("Skriver ut huvudmeny");
+            Console.WriteLine(@" ________  ___  ___  ___  ________   ___  __            ________  ___  __    ___  ________  ________   ");
+            Console.WriteLine(@"|\   ____\|\  \|\  \|\  \|\   ___  \|\  \|\  \         |\   ____\|\  \|\  \ |\  \|\   __  \|\   __  \  ");
+            Console.WriteLine(@"\ \  \___|\ \  \\\  \ \  \ \  \\ \  \ \  \/  /|_       \ \  \___|\ \  \/  /|\ \  \ \  \|\  \ \  \|\  \ ");
+            Console.WriteLine(@" \ \_____  \ \   __  \ \  \ \  \\ \  \ \   ___  \       \ \_____  \ \   ___  \ \  \ \   ____\ \   ____\");
+            Console.WriteLine(@"  \|____|\  \ \  \ \  \ \  \ \  \\ \  \ \  \\ \  \       \|____|\  \ \  \\ \  \ \  \ \  \___|\ \  \___|");
+            Console.WriteLine(@"    ____\_\  \ \__\ \__\ \__\ \__\\ \__\ \__\\ \__\        ____\_\  \ \__\\ \__\ \__\ \__\    \ \__\   ");
+            Console.WriteLine(@"   |\_________\|__|\|__|\|__|\|__| \|__|\|__| \|__|       |\_________\|__| \|__|\|__|\|__|     \|__|   ");
+            Console.WriteLine(@"   \|_________|                                           \|_________|                                 ");
+            Console.WriteLine();
             Console.WriteLine("-- Sänka Skepp --");
             Console.WriteLine("1. Nytt spel");
             Console.WriteLine("2. High Score");
