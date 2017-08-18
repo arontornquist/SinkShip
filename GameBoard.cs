@@ -41,7 +41,8 @@ namespace SinkShip
                 for (int j = 0; j < board.GetLength(1); j++)
                     board[i, j] = 0;
             log.Debug("Försöker skapa skepp");
-            for (int i = 0; i < 2; i++) //TODO: Skapa funktion för nrOfShips - ex slumpa mellan 1 och (minsta av spelplanhöjd och bredd)-1
+            int nrOfShips=NrOfShips();
+            for (int i = 0; i < nrOfShips; i++) //TODO: Skapa funktion för nrOfShips - ex slumpa mellan 1 och (minsta av spelplanhöjd och bredd)-1
             {
                 Ship x = new Ship();
                 ships.Add(x);
@@ -77,6 +78,14 @@ namespace SinkShip
             
         }
 
+        private int NrOfShips()
+        {
+            if (X >= Y)
+                return (X - 1);
+            else
+                return (Y - 1);
+        }
+
         public bool Shoot(int x, int y)
         {
             if (Board[(x-1), (y-1)] == 1)
@@ -100,6 +109,7 @@ namespace SinkShip
 
         public void Print()
         {
+            Console.WriteLine();
             for (int i = -1; i < board.GetLength(0); i++)
             {
                 for (int j = -1; j < board.GetLength(1); j++)

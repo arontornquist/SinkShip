@@ -51,7 +51,7 @@ namespace SinkShip
         private static void NewGame() //TODO: Dela upp i metoder?
         {          
             GameBoard gameBoard = CreateGameBoard();
-            int shotsLeft = 5;
+            int shotsLeft = 5; //TODO: Göra en beräkning av hur många skott man har? Ex som en funktion av spelplanen (16 rutor ger 8 försök)
             bool result = false;
             do
             {
@@ -95,7 +95,7 @@ namespace SinkShip
                     log.Debug($"Användaren skjuter, träff på x:{x} y:{y}");
                     if (gameBoard.Check())
                     {
-                        gameBoard.Print();
+                        gameBoard.Print(); //TODO: Lägga till rolig info kring träff: skriva ut/"säga "Hit!"
                         result = true;
                         break;
                     }                
