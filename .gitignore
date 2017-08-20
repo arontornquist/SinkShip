@@ -2,3 +2,4 @@ bin
 .suo
 obj
 sinkship.log
+.vs/SinkShip/v15/sqlite3/storage.ide

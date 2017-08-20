@@ -54,6 +54,7 @@ namespace SinkShip
             GameBoard gameBoard = CreateGameBoard();
             int shotsLeft = NumberOfShots(gameBoard.X, gameBoard.Y);
             log.Debug($"Spelplan på {gameBoard.X} x {gameBoard.Y} ger {shotsLeft} skott till användaren");
+            Console.Clear();
             bool result = false;
             Shoot(gameBoard, ref shotsLeft, ref result);
             EndGame(result);
@@ -82,6 +83,7 @@ namespace SinkShip
                 }
                 else
                 {
+                    Console.Clear();
                     log.Debug($"Användaren skjuter, miss på x:{x} y:{y}");
                     shotsLeft--;
                 }
@@ -134,14 +136,35 @@ namespace SinkShip
             if (gameResult)
             {
                 log.Debug("Alla skepp sänkta");
-                Console.WriteLine("Grattis, du har sänkt alla skepp");
+                Console.WriteLine(@"                                                       /\  /\");
+                Console.WriteLine(@"        Grattis                                        /\  /\");
+                Console.WriteLine(@"    du har sänkt alla skepp!                          /  ''  \");
+                Console.WriteLine(@"                                                     / .o\  ..\");
+                Console.WriteLine(@"                                                    /.'  |\ | '.");
+                Console.WriteLine(@"              __                                    '    |_\|");
+                Console.WriteLine(@"              \ \___     .__                             |_|<o>");
+                Console.WriteLine(@"            .--^^___\..--^ /                             | _ | | ");
+                Console.WriteLine(@"        .__.|-^^^..... ' /                          _____|_|_|\__");
+                Console.WriteLine(@"________\_______________/______________________..-'::::::::::::::::-.._");
+                Console.WriteLine();
+                Console.WriteLine("Tryck på valfri tangent för att fortsätta");
                 Console.ReadKey();
             }
 
             else
             {
                 log.Debug("Game over");
-                Console.WriteLine("Game Over");
+                Console.WriteLine(@"              ('-.    _   .-')      ('-.                   (`-.     ('-. _  .-')  ");
+                Console.WriteLine(@"             ( OO ).-( '.( OO )_  _(  OO)                _(OO  )_ _(  OO( \( -O ) ");
+                Console.WriteLine(@"  ,----.     / . --. /,--.   ,--.(,------..-'),-----.,--(_/   ,. (,------,------. ");
+                Console.WriteLine(@" '  .-./-')  | \-.  \ |   `.'   | |  .---( OO'  .-.  \   \   /(__/|  .---|   /`. '");
+                Console.WriteLine(@" |  |_( O- .-'-'  |  ||         | |  |   /   |  | |  |\   \ /   / |  |   |  /  | |");
+                Console.WriteLine(@" |  | .--, \\| |_.'  ||  |'.'|  |(|  '--.\_) |  |\|  | \   '   /,(|  '--.|  |_.' |");
+                Console.WriteLine(@"(|  | '. (_/ |  .-.  ||  |   |  | |  .--'  \ |  | |  |  \     /__)|  .--'|  .  '.'");
+                Console.WriteLine(@" |  '--'  |  |  | |  ||  |   |  | |  `---.  `'  '-'  '   \   /    |  `---|  |\  \ ");
+                Console.WriteLine(@"  `------'   `--' `--'`--'   `--' `------'    `-----'     `-'     `------`--' '--'");
+                Console.WriteLine();
+                Console.WriteLine("Tryck på valfri tangent för att fortsätta");
                 Console.ReadKey();
             }
                 
