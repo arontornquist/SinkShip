@@ -136,9 +136,7 @@ namespace SinkShip
             if (gameResult)
             {
                 log.Debug("Alla skepp sänkta");
-<<<<<<< HEAD
                 Console.WriteLine("Grattis, du har sänkt alla skepp"); //TODO - Hur många skepp är kvar att sänka?
-=======
                 Console.WriteLine(@"                                                       /\  /\");
                 Console.WriteLine(@"        Grattis                                        /\  /\");
                 Console.WriteLine(@"    du har sänkt alla skepp!                          /  ''  \");
@@ -151,7 +149,6 @@ namespace SinkShip
                 Console.WriteLine(@"________\_______________/______________________..-'::::::::::::::::-.._");
                 Console.WriteLine();
                 Console.WriteLine("Tryck på valfri tangent för att fortsätta");
->>>>>>> dc606295cd1951413000b0038b0253b6b232a27b
                 Console.ReadKey();
             }
 
