@@ -67,7 +67,7 @@ namespace SinkShip
                 log.Debug($"Användaren skjuter. Antal skott kvar {shotsLeft}");
                 gameBoard.Print();
                 Console.WriteLine($"Du har {shotsLeft} försök kvar.");
-                Console.WriteLine("Vart vill du stjuta? (x,y)");
+                Console.WriteLine("Vart vill du stjuta? (x,y)"); //TODO: Enda felet vi lyckades hitta! Hur stavas skjuta? :-)
                 int x, y;
                 PrepareShot(gameBoard, out x, out y);
 
