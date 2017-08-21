@@ -23,7 +23,7 @@ namespace SinkShip
             set { board = value; }
         }
 
-        //private int[,] Board { get; set; }
+        //private int[,] Board { get; set; }      <---------- TODO Ska detta bort?
 
 
         public GameBoard(int x, int y)
@@ -80,7 +80,7 @@ namespace SinkShip
             
         }
 
-        private int NrOfShips()
+        private int NrOfShips() // TODO - Vi förstår inte... Vad gör denna smarta kod?
         {
             if (X >= Y)
                 return (X - 1);

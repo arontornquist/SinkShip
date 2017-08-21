@@ -255,7 +255,7 @@ namespace SinkShip
         /// </summary>
         public void DisplayMainMenu()
         {
-            log.Debug("Skriver ut huvudmeny");
+            log.Debug("Skriver ut huvudmeny"); ///GOOD! Snygg logga.
             Console.WriteLine(@" ________  ___  ________   ___  __            ________  ___  ___  ___  ________   ");
             Console.WriteLine(@"|\   ____\|\  \|\   ___  \|\  \|\  \         |\   ____\|\  \|\  \|\  \|\   __  \  ");
             Console.WriteLine(@"\ \  \___|\ \  \ \  \\ \  \ \  \/  /|_       \ \  \___|\ \  \\\  \ \  \ \  \|\  \ ");
