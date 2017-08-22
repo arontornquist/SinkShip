@@ -12,8 +12,6 @@ namespace SinkShip
         public int ShipHeight { get; set; }
         public int[] StartingPoint { get; set; }
 
-        //public Ship()         //Oanvänd kod, ta bort?
-        //{
-        //}
+        
     }
 }

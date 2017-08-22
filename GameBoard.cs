@@ -23,8 +23,6 @@ namespace SinkShip
             set { board = value; }
         }
 
-        //private int[,] Board { get; set; }      <---------- TODO Ska detta bort?
-
 
         public GameBoard(int x, int y)
         {
@@ -44,7 +42,7 @@ namespace SinkShip
                     board[i, j] = 0;
             log.Debug("Försöker skapa skepp");
             int nrOfShips=NrOfShips();
-            for (int i = 0; i < nrOfShips; i++) //TODO: Skapa funktion för nrOfShips - ex slumpa mellan 1 och (minsta av spelplanhöjd och bredd)-1
+            for (int i = 0; i < nrOfShips; i++) 
             {
                 Ship x = new Ship();
                 ships.Add(x);
@@ -80,7 +78,7 @@ namespace SinkShip
             
         }
 
-        private int NrOfShips() // TODO - Vi förstår inte... Vad gör denna smarta kod?
+        private int NrOfShips() // Skapar ett heltal ( som används för att skapa skepp) 1 mindre än det minsta värdet av X och Y vilket är brädets koordinater
         {
             if (X >= Y)
                 return (X - 1);

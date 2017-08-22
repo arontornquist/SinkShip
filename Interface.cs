@@ -136,15 +136,15 @@ namespace SinkShip
             if (gameResult)
             {
                 log.Debug("Alla skepp sänkta");
-                Console.WriteLine("Grattis, du har sänkt alla skepp"); //TODO - Hur många skepp är kvar att sänka?
+                
                 Console.WriteLine(@"                                                       /\  /\");
                 Console.WriteLine(@"        Grattis                                        /\  /\");
                 Console.WriteLine(@"    du har sänkt alla skepp!                          /  ''  \");
                 Console.WriteLine(@"                                                     / .o\  ..\");
                 Console.WriteLine(@"                                                    /.'  |\ | '.");
                 Console.WriteLine(@"              __                                    '    |_\|");
-                Console.WriteLine(@"              \ \___     .__                             |_|<o>");
-                Console.WriteLine(@"            .--^^___\..--^ /                             | _ | | ");
+                Console.WriteLine(@"              \ \___    .__                              |_|<o>");
+                Console.WriteLine(@"            .--^^___\..--^/                              | _ | | ");
                 Console.WriteLine(@"        .__.|-^^^..... ' /                          _____|_|_|\__");
                 Console.WriteLine(@"________\_______________/______________________..-'::::::::::::::::-.._");
                 Console.WriteLine();
@@ -219,8 +219,14 @@ namespace SinkShip
         {
             //TODO: Skriv metoden! <------ Ja, vi håller med. Vi saknade vår vinst i listan.
             //throw new NotImplementedException();
-            Console.WriteLine("High Score Lista"); 
-            Console.ReadLine();
+            Console.WriteLine("High Score Lista");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Kommer i version 1.2");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine("Tryck på valfri tangent för att fortsätta");
+            Console.ReadKey();
         }
         /// <summary>
         /// Init the menu
