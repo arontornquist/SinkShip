@@ -67,7 +67,7 @@ namespace SinkShip
                 log.Debug($"Användaren skjuter. Antal skott kvar {shotsLeft}");
                 gameBoard.Print();
                 Console.WriteLine($"Du har {shotsLeft} försök kvar.");
-                Console.WriteLine("Vart vill du stjuta? (x,y)"); //TODO: Enda felet vi lyckades hitta! Hur stavas skjuta? :-)
+                Console.WriteLine("Vart vill du skjuta? (x,y)");
                 int x, y;
                 PrepareShot(gameBoard, out x, out y);
 
@@ -76,7 +76,7 @@ namespace SinkShip
                     log.Debug($"Användaren skjuter, träff på x:{x} y:{y}");
                     if (gameBoard.Check())
                     {
-                        gameBoard.Print(); //TODO: Lägga till rolig info kring träff: skriva ut/"säga "Hit!"  <---- Ta bort denna
+                        gameBoard.Print();
                         result = true;
                         break;
                     }
